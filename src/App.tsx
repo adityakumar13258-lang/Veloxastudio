@@ -1,0 +1,57 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { Routes, Route } from "react-router-dom";
+import { Header } from "./components/ui/header-2";
+import { Hero } from "./components/sections/Hero";
+import { Features } from "./components/sections/Features";
+import { HowItWorks } from "./components/ui/how-it-works";
+import { Work } from "./components/sections/Work";
+import { Pricing } from "./components/sections/Pricing";
+import { WhyVeloxa } from "./components/sections/WhyVeloxa";
+import { CTA } from "./components/sections/CTA";
+import { Contact2 } from "./components/ui/contact-2";
+import { Footer } from "./components/layout/Footer";
+import OnboardingForm from "./components/ui/multistep-form";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+
+function Home() {
+  return (
+    <main>
+      <Hero />
+      <Features />
+      <HowItWorks />
+      <Work />
+      <Pricing />
+      <WhyVeloxa />
+      <CTA />
+      <Contact2 />
+    </main>
+  );
+}
+
+function Enquiry() {
+  return (
+    <main className="pt-32 pb-20 min-h-screen flex items-center justify-center">
+      <OnboardingForm />
+    </main>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-background text-primary selection:bg-white/20">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/enquiry" element={<Enquiry />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
+}
