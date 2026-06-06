@@ -3,36 +3,57 @@ import { GlassCard } from "@/src/components/ui/GlassCard";
 import { ArrowUpRight } from "lucide-react";
 import { CTA } from "@/src/components/sections/CTA";
 
-const allProjects = [
+const projectCategories = [
   {
-    title: "The Garden Restaurant",
-    category: "Restaurant • Fine Dining",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop",
-    link: "https://thegardenrestaurant.figma.site/"
+    title: "Restaurant",
+    projects: [
+      {
+        title: "The Garden Restaurant",
+        category: "Restaurant • Fine Dining",
+        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop",
+        link: "https://thegardenrestaurant.figma.site/"
+      },
+      {
+        title: "Saffron Table",
+        category: "Restaurant • Modern Indian",
+        image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop",
+        link: "https://benevolent-longma-e18206.netlify.app/"
+      },
+      {
+        title: "Saffron and Spice",
+        category: "Restaurant • Authentic Cuisine",
+        image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1934&auto=format&fit=crop",
+        link: "https://saffronandspicegrowth.netlify.app/"
+      },
+      {
+        title: "The Royal Spice",
+        category: "Restaurant • Premium Dining",
+        image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=2072&auto=format&fit=crop",
+        link: "https://theroyalspicepro.netlify.app/"
+      }
+    ]
   },
   {
-    title: "Saffron Table",
-    category: "Restaurant • Modern Indian",
-    image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop",
-    link: "https://benevolent-longma-e18206.netlify.app/"
+    title: "Hotels",
+    projects: [
+      {
+        title: "SALTSTAYZ PREMIER SUITES",
+        category: "Hospitality • Luxury Suites",
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+        link: "https://saltstayzpremiersuites.figma.site/"
+      }
+    ]
   },
   {
-    title: "Saffron and Spice",
-    category: "Restaurant • Authentic Cuisine",
-    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1934&auto=format&fit=crop",
-    link: "https://saffronandspicegrowth.netlify.app/"
-  },
-  {
-    title: "The Royal Spice",
-    category: "Restaurant • Premium Dining",
-    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=2072&auto=format&fit=crop",
-    link: "https://theroyalspicepro.netlify.app/"
-  },
-  {
-    title: "SALTSTAYZ PREMIER SUITES",
-    category: "Hospitality • Luxury Suites",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
-    link: "https://saltstayzpremiersuites.figma.site/"
+    title: "Interior Designer",
+    projects: [
+      {
+        title: "Made In Heaven Interiors",
+        category: "Interior Designer",
+        image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop",
+        link: "https://made-in-heaven-interiors-302892529330.asia-southeast1.run.app"
+      }
+    ]
   }
 ];
 
@@ -55,39 +76,48 @@ export default function Projects() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {allProjects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
-                className="group cursor-pointer"
-              >
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
-                  <GlassCard className="p-2 mb-6 overflow-hidden">
-                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                        referrerPolicy="no-referrer"
-                      />
-                      <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                        <span className="text-xs font-medium text-white flex items-center gap-2">
-                          View Live <ArrowUpRight className="w-3 h-3" />
-                        </span>
-                      </div>
-                    </div>
-                  </GlassCard>
-                  <div>
-                    <h3 className="text-2xl font-medium mb-2">{project.title}</h3>
-                    <p className="text-secondary text-sm">{project.category}</p>
-                  </div>
-                </a>
-              </motion.div>
+          <div>
+            {projectCategories.map((category, catIndex) => (
+              <div key={catIndex} className="mb-20 last:mb-0">
+                <h2 className="text-3xl md:text-4xl font-display font-semibold mb-8 pl-4 border-l-4 border-pink-500 tracking-tight">
+                  {category.title}
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {category.projects.map((project, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.7, delay: index * 0.1 }}
+                      className="group cursor-pointer"
+                    >
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
+                        <GlassCard className="p-2 mb-6 overflow-hidden">
+                          <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                            <img 
+                              src={project.image} 
+                              alt={project.title}
+                              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                              referrerPolicy="no-referrer"
+                            />
+                            <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                              <span className="text-xs font-medium text-white flex items-center gap-2">
+                                View Live <ArrowUpRight className="w-3 h-3" />
+                              </span>
+                            </div>
+                          </div>
+                        </GlassCard>
+                        <div>
+                          <h3 className="text-2xl font-medium mb-2">{project.title}</h3>
+                          <p className="text-secondary text-sm">{project.category}</p>
+                        </div>
+                      </a>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>

@@ -4,6 +4,7 @@
  */
 
 import { Routes, Route } from "react-router-dom";
+import { ScrollToTop } from "./components/ui/ScrollToTop";
 import { Header } from "./components/ui/header-2";
 import { Hero } from "./components/sections/Hero";
 import { Features } from "./components/sections/Features";
@@ -44,6 +45,7 @@ function Enquiry() {
 export default function App() {
   return (
     <div className="min-h-screen bg-background text-primary selection:bg-white/20">
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

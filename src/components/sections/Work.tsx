@@ -6,17 +6,24 @@ import { ArrowUpRight } from "lucide-react";
 const projects = [
   {
     title: "The Garden Restaurant",
-    category: "Restaurant • Fine Dining",
+    category: "Restaurant",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop",
     stats: "+42% Online Reservations",
     link: "https://thegardenrestaurant.figma.site/"
   },
   {
     title: "SALTSTAYZ PREMIER SUITES",
-    category: "Hospitality • Luxury Suites",
+    category: "Hotels",
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
     stats: "+28% Direct Bookings",
     link: "https://saltstayzpremiersuites.figma.site/"
+  },
+  {
+    title: "Made In Heaven Interiors",
+    category: "Interior Designer",
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop",
+    stats: "3x Client Inquiries",
+    link: "https://made-in-heaven-interiors-302892529330.asia-southeast1.run.app"
   }
 ];
 
@@ -38,7 +45,7 @@ export function Work() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
