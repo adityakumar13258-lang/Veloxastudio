@@ -18,6 +18,9 @@ import { Footer } from "./components/layout/Footer";
 import OnboardingForm from "./components/ui/multistep-form";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import Terms from "./pages/Terms";
+import Policies from "./pages/Policies";
 
 function Home() {
   return (
@@ -52,6 +55,9 @@ export default function App() {
         <Route path="/enquiry" element={<Enquiry />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/policies" element={<Policies />} />
       </Routes>
       <Footer />
     </div>

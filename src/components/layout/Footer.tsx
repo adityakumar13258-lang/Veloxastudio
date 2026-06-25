@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -20,13 +21,26 @@ export function Footer() {
           <div>
             <h4 className="font-medium text-white mb-6">Company</h4>
             <ul className="space-y-4">
-              {["About", "Careers", "Blog", "Contact"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-secondary hover:text-white transition-colors text-sm">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link to="/about" className="text-secondary hover:text-white transition-colors text-sm">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/policies" className="text-secondary hover:text-white transition-colors text-sm">
+                  Policies
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="text-secondary hover:text-white transition-colors text-sm">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-secondary hover:text-white transition-colors text-sm">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
           
@@ -47,8 +61,8 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 text-sm text-secondary">
           <p>© {new Date().getFullYear()} Veloxa Studio. All rights reserved.</p>
           <div className="flex items-center gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/policies" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

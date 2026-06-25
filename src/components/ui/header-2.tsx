@@ -23,6 +23,10 @@ export function Header() {
 			label: 'About',
 			href: '/about',
 		},
+		{
+			label: 'Contact',
+			href: '/contact',
+		},
 	];
 
 	React.useEffect(() => {
